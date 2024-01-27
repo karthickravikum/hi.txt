@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes myAnimation {
+            0% {background-color: red;}
+            50% {background-color: blue;}
+            100% {background-color: green;}
+        }
+
+        .box {
+            margin-left: 47%;
+
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+                 background-color: red;
+            animation-name: myAnimation;
+            animation-timing-function: linear;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center;">
+<div class="box" id="box"></div>
+<br>
+<br>
+<button onclick="restartAnimation()">Restart Animation</button>
+
+</div>
+
+<script>
+    function restartAnimation() {
+        var seconds = prompt("enter the duration of animation:");
+        var box = document.getElementById('box');
+        box.style.animation = 'none';
+        box.offsetHeight; /* Trigger reflow */
+        box.style.animation = '';
+        box.style.animationDuration = seconds+"s";
+    }
+</script>
+
+</body>
+</html>
